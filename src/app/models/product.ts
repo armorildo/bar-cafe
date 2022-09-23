@@ -1,7 +1,6 @@
 export interface ProductDTO {
  name: string;
  unitPrice: string;
-
 }
 
 export class Product {

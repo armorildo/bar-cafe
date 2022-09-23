@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { select, Store } from '@ngrx/store';
 import { State } from '../store/app.state';
+import { loadBusinessData } from '../store/bar-cafe-data/bar-cafe-data.actions';
 import { getBusinessData } from '../store/bar-cafe-data/bar-cafe-data.selectors';
 
 @Component({
@@ -9,8 +11,17 @@ import { getBusinessData } from '../store/bar-cafe-data/bar-cafe-data.selectors'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  businessName: string = '';
+  businessLogo: any | undefined;
 
-  constructor(private store$: Store<State>) {
+  constructor(private store$: Store<State>, private domSanitizer: DomSanitizer) {
+    this.store$
+      .pipe(select(getBusinessData))
+      .subscribe((data) => {
+        // console.log('business data for header', data)
+        this.businessName = data.businessName;
+        this.businessLogo = "data:image/png;base64, " + data.logo;
+      });
   }
 
   ngOnInit(): void {
@@ -19,5 +30,4 @@ export class HeaderComponent implements OnInit {
   changeTheme() {
     document.body.classList.toggle('dark-mode');
   }
-
 }

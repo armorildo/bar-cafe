@@ -17,10 +17,9 @@ export class BusinessEffects {
       ofType(BusinessActions.loadBusinessData),
       mergeMap(() =>
         this.businessDataService.getBusinessData().pipe(
-          tap((data) => console.log('recieved data', data)),
           map((data) => {
             RouterActions.routerGo({
-              path: ['/menu']
+              path: ['']
             });
             return BusinessActions.loadBusinessDataCompleted({ data })
           }),
@@ -46,6 +45,7 @@ export class BusinessEffects {
 
   constructor(
     private actions$: Actions,
+    private store$: Store<State>,
     private businessDataService: BusinessDataService,
     private snackbarService: SnackbarService
   ) { }

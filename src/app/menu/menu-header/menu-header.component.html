@@ -1,1 +1,6 @@
-<p>menu-item works!</p>
+<div class="menu-strip">
+ <span class="strip-item" [class.active]="item.name === selectedItem?.name" *ngFor="let item of menuItems"
+  (click)="changeMenu(item.id)">
+  {{item.name}}
+ </span>
+</div>

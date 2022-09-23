@@ -1,8 +1,9 @@
 
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
-import { MenuHeaderComponent } from './menu-header/menu-item.component';
+import { MenuHeaderComponent } from './menu-header/menu-header.component';
 import { MenuRoutingModule } from './menu-routing.module';
 
 
@@ -13,7 +14,8 @@ import { MenuRoutingModule } from './menu-routing.module';
     MenuComponent
   ],
   imports: [
-    MenuRoutingModule
+    MenuRoutingModule,
+    CommonModule
   ],
 })
 export class MenuModule {

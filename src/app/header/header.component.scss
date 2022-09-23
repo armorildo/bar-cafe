@@ -6,11 +6,11 @@
  margin-left: auto;
  margin-right: auto;
  min-width: 240px;
- border: 1px solid red;
  padding: .5rem;
  display: flex;
  justify-content: space-between;
  align-items: center;
+ background-color: var(--bkg-color);
 }
 
 .business {
@@ -20,6 +20,7 @@
  .business-logo-container {
   width: 62px;
   height: 62px;
+  background-color: var(--bkg-color);
 
   .business-logo {
    vertical-align: middle;

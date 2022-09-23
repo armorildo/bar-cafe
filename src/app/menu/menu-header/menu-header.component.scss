@@ -1,0 +1,25 @@
+.menu-strip {
+ background-color: var(--menu-header-color);
+ height: 55px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ overflow: auto;
+ white-space: nowrap;
+ // padding: 0 .5rem 0 .5rem;
+
+ .strip-item {
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
+  width: auto;
+  display: inline-block;
+  margin: 0 .5rem 0 .5rem;
+  cursor: pointer;
+
+  &.active {
+   color: var(--text-highlight-color);
+  }
+ }
+
+}
