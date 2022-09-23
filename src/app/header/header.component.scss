@@ -1,0 +1,49 @@
+:host {
+ width: 100%;
+}
+
+.app-header {
+ margin-left: auto;
+ margin-right: auto;
+ min-width: 240px;
+ border: 1px solid red;
+ padding: .5rem;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.business {
+ display: flex;
+ align-items: center;
+
+ .business-logo-container {
+  width: 62px;
+  height: 62px;
+
+  .business-logo {
+   vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+  }
+ }
+
+ .title {
+  font-size: 24px;
+  line-height: 27.6px;
+  font-weight: 700;
+ }
+
+ .subtitle {
+  font-size: 17px;
+  line-height: 19.55px;
+  font-weight: 300;
+ }
+}
+
+
+.theme-changer-container {
+ width: 35px;
+ height: 35px;
+}
