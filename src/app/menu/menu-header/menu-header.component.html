@@ -1,6 +1,6 @@
-<div class="menu-strip">
+<div class="menu-strip" #menuStrip>
  <span class="strip-item" [class.active]="item.name === selectedItem?.name" *ngFor="let item of menuItems"
-  (click)="changeMenu(item.id)">
+  (click)="changeMenu($event, item.id)">
   {{item.name}}
  </span>
 </div>

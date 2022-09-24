@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Category } from 'src/app/models/category';
 
 @Component({
@@ -10,13 +10,22 @@ export class MenuHeaderComponent implements OnInit {
   @Input() menuItems: Category[] | undefined;
   @Input() selectedItem: Category | undefined;
   @Output() menuChanged = new EventEmitter<string>();
+  @ViewChild('menuStrip', { static: true })
+  menuStrip!: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  changeMenu(item: string) {
+  changeMenu(event: any, item: string) {
+    console.log('event', event.target.offsetLeft)
+    console.log('menu strip', this.menuStrip)
+    this.menuStrip.nativeElement.scrollTo({
+      top: 0,
+      left: event.target.offsetLeft,
+      behavior: 'smooth'
+    })
     this.menuChanged.emit(item);
   }
 }

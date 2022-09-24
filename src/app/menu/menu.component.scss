@@ -23,3 +23,18 @@
   z-index: 2;
  }
 }
+
+.receipt-button {
+ width: 52px;
+ height: 52px;
+ border-radius: 26px;
+ position: fixed;
+ bottom: 3rem;
+ right: 1.5rem;
+ z-index: 4;
+
+ img {
+  width: 52px;
+  height: 52px;
+ }
+}
