@@ -10,3 +10,8 @@ export const getBusinessData = createSelector(
   getBusinessState,
   (state: fromBusiness.BusinessState) => { return state.businessData }
 );
+
+export const isLoading = createSelector(
+  getBusinessState,
+  (state: fromBusiness.BusinessState) => { return state.loading }
+);

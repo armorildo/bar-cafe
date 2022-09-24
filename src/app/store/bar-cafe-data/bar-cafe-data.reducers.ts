@@ -7,10 +7,12 @@ export const featureKey = 'business';
 
 export interface BusinessState {
   businessData: BusinessData;
+  loading: boolean;
 }
 
 export const initialState: BusinessState = {
   businessData: new BusinessData,
+  loading: true,
 };
 
 export const reducer = createReducer(
@@ -22,6 +24,7 @@ export const reducer = createReducer(
     return {
       ...state,
       businessData: new BusinessData(action.data),
+      loading: false,
     };
   })
 );
