@@ -13,4 +13,13 @@
 ::ng-deep.grid-item {
  width: 195px;
  height: 195px;
+ position: relative;
+
+ .product-select {
+  position: absolute;
+  top: .25rem;
+  left: .25rem;
+  padding: .25rem;
+  z-index: 2;
+ }
 }

@@ -43,8 +43,9 @@
  }
 }
 
-
 .theme-changer-container {
  width: 35px;
  height: 35px;
+ border-radius: 17.5px;
+ filter: var(--theme-changer-filter);
 }

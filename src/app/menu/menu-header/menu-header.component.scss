@@ -20,6 +20,10 @@
   &.active {
    color: var(--text-highlight-color);
   }
+
+  &:not(.active) {
+   color: #333333;
+  }
  }
 
 }

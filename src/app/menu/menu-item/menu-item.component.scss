@@ -1,4 +1,59 @@
 :host {
+ display: inline-block;
  width: 100%;
  height: 100%;
+ position: absolute;
+}
+
+.product-name {
+ position: absolute;
+ bottom: .25rem;
+ left: .25rem;
+ font-size: 24px;
+ font-weight: 700;
+ line-height: 27.6px;
+ text-transform: capitalize;
+ width: 175px;
+ overflow: hidden;
+ display: inline-block;
+ text-overflow: ellipsis;
+ // white-space: nowrap;
+}
+
+.product-price {
+ position: absolute;
+ // top: 40px;
+ // right: -25px;
+ font-size: 21px;
+ font-weight: 700;
+ line-height: 24.15px;
+ text-transform: capitalize;
+ color: var(--text-highlight-color);
+ width: 100%;
+ text-align: end;
+ transform-origin: bottom right;
+ transform: rotate(270deg) translateX(15px);
+
+ .product-unit {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 20.7px;
+  color: var(--text-color);
+ }
+}
+
+.product-initial {
+ position: absolute;
+ left: 24px;
+ top: 6px;
+ transform: rotate(45deg);
+ font-size: 104px;
+ font-weight: 900;
+ line-height: 123.03px;
+ text-transform: capitalize;
+ color: transparent;
+ -webkit-text-fill-color: transparent;
+ /* Will override color (regardless of order) */
+ -webkit-text-stroke-width: .75px;
+ -webkit-text-stroke-color: hsla(0, 48%, 45%, 0.15);
 }

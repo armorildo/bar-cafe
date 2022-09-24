@@ -2,6 +2,9 @@
 </app-menu-header>
 <div class="grid-container" *ngIf="currentProducts">
  <div class="grid-item" *ngFor="let product of currentProducts; let i = index" [style.background-color]="colorArray[i]">
-  <app-menu-item [product]="product"></app-menu-item>
+  <input type="checkbox" [checked]="isItemSelected(product)" (change)="addRemoveProduct($event, product)"
+   class="product-select">
+  <app-menu-item [product]="product">
+  </app-menu-item>
  </div>
 </div>

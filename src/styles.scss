@@ -3,23 +3,28 @@
 html,
 body {
  height: 100%;
+ box-sizing: border-box;
 }
 
 body {
  margin: 0;
- font-family: Roboto, "Helvetica Neue", sans-serif;
+ font-family: Roboto, "Helvetica", sans-serif;
  --bkg-color: #ffffff;
  --text-color: #333333;
  --text-highlight-color: #F44242;
  --menu-header-color: #f7f7f7;
+ --item-letter-color: hsla(0, 48%, 45%, 0.15);
 }
 
 body.dark-mode {
  --bkg-color: #333333;
- --menu-header-color: #ffffff;
+ --menu-header-color: #666666;
  --text-color: #888888;
+ --item-letter-color: hsla(0, 0%, 40%, 0.5);
+ --theme-changer-filter: invert(40%) sepia(0%) saturate(420%) hue-rotate(194deg) brightness(98%) contrast(91%);
 }
 
 body {
  background: var(--bkg-color);
+ color: var(--text-color);
 }

@@ -1,1 +1,5 @@
-<p>{{product?.name}}</p>
+<span class="product-name">{{product?.name}}</span>
+<span class="product-price">
+ {{product?.unitPrice}}<span class="product-unit"> Lekë</span>
+</span>
+<span class="product-initial">{{getInitial(product?.name!)}}</span>

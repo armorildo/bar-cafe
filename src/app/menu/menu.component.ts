@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   selectedMenu: Category | undefined;
   currentProducts: Product[] = [];
   colorArray: string[] = [];
+  receiptList: Product[] = [];
 
   constructor(private store$: Store<State>, private cdr: ChangeDetectorRef) {
     this.store$
@@ -37,8 +38,39 @@ export class MenuComponent implements OnInit {
   updateSelectedMenu(id: string) {
     this.selectedMenu = this.menuBar.find((item) => item.id === id);
     this.currentProducts = this.selectedMenu?.products!;
-    console.log('selectedmenuitem', this.selectedMenu);
     this.colorize();
+  }
+
+  isItemSelected(item: Product) {
+    console.log('receipt array', this.receiptList);
+    this.receiptList.filter(element => {
+      if (element.name == item.name) {
+        console.log('elementName', element.name);
+        console.log('itemName', item.name);
+        return true;
+      }
+      return false;
+    });
+    return false
+  }
+
+  addRemoveProduct(event: any, item: any) {
+    if (event.target.checked) {
+      this.addToReceipt(item);
+    }
+    else {
+      this.removeFromReceipt(item);
+    }
+  }
+
+  addToReceipt(item: Product) {
+    console.log('adding');
+    this.receiptList = [...this.receiptList, item];
+  }
+
+  removeFromReceipt(item: Product) {
+    console.log('removing');
+    this.receiptList = this.receiptList.filter((el) => el.name !== item.name);
   }
 
   colorize() {
