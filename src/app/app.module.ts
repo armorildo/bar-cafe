@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from "@angular/material/button";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MenuModule } from './menu/menu.module';
 import { HeaderComponent } from './header/header.component';
 import { Store, StoreModule } from '@ngrx/store';
@@ -33,6 +36,9 @@ import { BusinessEffects } from './store/bar-cafe-data/bar-cafe-data.effects';
     HttpClientModule,
     MenuModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatCheckboxModule,
     StoreModule.forFeature(featureKey, fromBusinessData.reducer),
     EffectsModule.forFeature([BusinessEffects]),
     StoreModule.forRoot(reducers),

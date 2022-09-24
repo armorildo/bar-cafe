@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
     this.store$
       .pipe(select(getBusinessData))
       .subscribe((data) => {
-        // console.log('business data for header', data)
         this.businessName = data.businessName;
         this.businessLogo = "data:image/png;base64, " + data.logo;
       });

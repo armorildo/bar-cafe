@@ -2,12 +2,53 @@
 </app-menu-header>
 <div class="grid-container" *ngIf="currentProducts">
  <div class="grid-item" *ngFor="let product of currentProducts; let i = index" [style.background-color]="colorArray[i]">
-  <input type="checkbox" [checked]="isItemSelected(product)" (change)="addRemoveProduct($event, product)"
+  <input type="checkbox" [checked]="isItemSelected(product.name)" (change)="addRemoveProduct($event, product)"
    class="product-select">
   <app-menu-item [product]="product">
   </app-menu-item>
  </div>
 </div>
 <span class="receipt-button" *ngIf="receiptList.length > 0">
- <img src="/assets/icons/receipt-svgrepo-com.svg" alt="open receipt">
+ <img src="/assets/icons/receipt-svgrepo-com.svg" alt="open receipt" (click)="openReceiptModal()">
 </span>
+
+<!-- Receipt Modal (begin) -->
+<ng-template #receiptModal>
+ <div class="modal-header">
+  <span class="receipt-close" (click)="receiptDialogRef?.close(false)">
+   &#x2715;
+  </span>
+ </div>
+ <div mat-dialog-content style="width: 100%;">
+  <div [@slideIn] *ngFor="let item of receiptList" class="receipt-entry">
+   <div class="item-name">{{item.name}}</div>
+   <div class="item-quantity">
+    <input type="number" (change)="updateSums($event, item)" [value]="item.quantity" [min]="1">
+   </div>
+   <div class="item-sum">{{+item.unitPrice * +item.quantity}}</div>
+  </div>
+  <div class="receipt-entry">
+   <div class="item-name">total</div>
+   <div class="total-sum">{{calcTotal()}}</div>
+  </div>
+ </div>
+ <div mat-dialog-actions style="width: 100%;">
+  <button type="button" class="dialog-close-button" (click)="onReceiptDialogClose(true)">
+   dërgo faturën
+  </button>
+ </div>
+</ng-template>
+<!-- Receipt Modal (end) -->
+
+<!-- Success Modal (begin) -->
+<ng-template #successModal>
+ <div mat-dialog-content class="dialog-success-message">
+  fatura u dergua me sukes
+ </div>
+ <div mat-dialog-actions style="width: 100%;">
+  <button type="button" class="dialog-close-button" (click)="successDialogRef?.close()">
+   mbyll
+  </button>
+ </div>
+</ng-template>
+<!-- Success Modal (end) -->

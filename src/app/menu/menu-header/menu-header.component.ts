@@ -23,7 +23,7 @@ export class MenuHeaderComponent implements OnInit {
     console.log('menu strip', this.menuStrip)
     this.menuStrip.nativeElement.scrollTo({
       top: 0,
-      left: event.target.offsetLeft,
+      left: event.target.offsetLeft - 10,
       behavior: 'smooth'
     })
     this.menuChanged.emit(item);

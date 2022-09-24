@@ -24,7 +24,6 @@ export class BusinessDataService {
    * Gets business data
    */
   getBusinessData(): Observable<BusinessDataDTO> {
-    console.log('requesting data')
     return this.httpClient.get<BusinessDataDTO>(BusinessDataService.ROUTES.data);
   }
 }
