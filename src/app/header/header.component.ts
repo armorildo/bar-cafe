@@ -18,7 +18,10 @@ export class HeaderComponent implements OnInit {
     this.store$
       .pipe(select(getBusinessData))
       .subscribe((data) => {
+        //get business name and logo from the state
         this.businessName = data.businessName;
+        //since the retrieved image is a base64 string, we must add a little extra overhead to use it as a 
+        //src attribute for the image element
         this.businessLogo = "data:image/png;base64, " + data.logo;
       });
   }
@@ -26,6 +29,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // function that toggles the dark-mode class on the BODY DOM element
   changeTheme() {
     document.body.classList.toggle('dark-mode');
   }

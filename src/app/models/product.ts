@@ -1,3 +1,4 @@
+// Product data transfer object
 export interface ProductDTO {
  name: string;
  unitPrice: string;

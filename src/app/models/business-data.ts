@@ -1,3 +1,4 @@
+// Business data model data transfer object
 import { Category } from "./category";
 
 export interface BusinessDataDTO {

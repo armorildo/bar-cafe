@@ -18,9 +18,7 @@ export class BusinessEffects {
       mergeMap(() =>
         this.businessDataService.getBusinessData().pipe(
           map((data) => {
-            RouterActions.routerGo({
-              path: ['']
-            });
+            // finish data load
             return BusinessActions.loadBusinessDataCompleted({ data })
           }),
           catchError(() => of(BusinessActions.loadBusinessDataFailed()))
@@ -34,8 +32,9 @@ export class BusinessEffects {
       this.actions$.pipe(
         ofType(BusinessActions.loadBusinessDataFailed),
         tap(() =>
+          //show error if data could not be retrieved
           this.snackbarService.showSnackbar(
-            'general.feedback.data-loading.failed',
+            'Failed to retrieve data',
             4000
           )
         )

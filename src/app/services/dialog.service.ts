@@ -1,3 +1,4 @@
+// Dialog service
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
@@ -11,7 +12,8 @@ export class DialogService {
 
   constructor(private dialog: MatDialog) {
   }
-
+  // opens a new dialog with defined data, the component that will build the dialog (angular component or ngTemplate)
+  // and the minimum height (optional)
   openStandardDialog(data: StandardDialogData, component: any, minHeight?: string): MatDialogRef<any> {
     return this.dialog
       .open(component, {
@@ -25,7 +27,7 @@ export class DialogService {
         // maxHeight: '80vh',
       });
   }
-
+  // get the instance of component opened in the dialog
   getInstance() {
     return this.dialogRef?.componentInstance;
   }

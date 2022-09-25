@@ -7,12 +7,13 @@ import { BusinessDataDTO } from '../models/business-data';
 })
 export class BusinessDataService {
 
+  // base server url
   private static url = "https://test.dev.al";
 
   private static get ROUTES() {
     return {
 
-      // Business data
+      // Business data url
       data: this.url + '/test/',
     };
   }

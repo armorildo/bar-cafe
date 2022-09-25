@@ -18,7 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { loadBusinessData } from './store/bar-cafe-data/bar-cafe-data.actions';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-// import { RouterEffects } from './store/router/router.effects';
+import { RouterEffects } from './store/router/router.effects';
 import { featureKey } from './store/bar-cafe-data/bar-cafe-data.reducers';
 import * as fromBusinessData from './store/bar-cafe-data/bar-cafe-data.reducers';
 import { BusinessEffects } from './store/bar-cafe-data/bar-cafe-data.effects';
@@ -44,9 +44,10 @@ import { BusinessEffects } from './store/bar-cafe-data/bar-cafe-data.effects';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot(/*[RouterEffects]*/),
+    EffectsModule.forRoot([RouterEffects]),
   ],
   providers: [
+    // dispatch call to load business data on app initialisation
     {
       provide: APP_INITIALIZER,
       useFactory: (store: Store<State>) => () => { return store.dispatch(loadBusinessData()) },

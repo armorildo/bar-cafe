@@ -1,3 +1,4 @@
+// Category data transfer object
 import { Product } from "./product";
 
 export interface CategoryDTO {

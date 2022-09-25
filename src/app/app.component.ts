@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'bar-cafe';
   isLoading: boolean = true;
 
+  // retrieve the loading state from the store
   constructor(private store$: Store<State>,) {
     this.store$
       .pipe(select(isLoading))
